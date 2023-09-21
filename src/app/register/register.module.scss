@@ -1,0 +1,13 @@
+@import '/src/app/mixins.scss';
+
+.register{
+    display: flex;
+    @include padding-three;
+
+    .registerimage{
+        img{
+            width: 100%;
+            max-width: 600px;
+        }
+    }
+}

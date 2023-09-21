@@ -1,0 +1,72 @@
+.headercontainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: 1020px) {
+        align-self: flex-end;
+    }
+
+    .headertext {
+        position: relative;
+        z-index: 2;
+        font-size: clamp(0.9rem, 1.95vw, 2.2rem);
+        font-style: italic;
+    }
+
+
+
+    .animatedsvg {
+        --length: 150;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(20%, 0%);
+        stroke-dasharray: var(--length);
+        stroke-dashoffset: var(--length);
+        stroke: #FF26B9;
+        stroke-width: 5;
+        transition: stroke-dashoffset 250ms ease-out;
+
+        @media (min-width: 720px) and (max-width: 1019px) {
+            transform: translate(15%, 0%);
+
+            --length: 160;
+        }
+
+        @media (min-width: 1020px) and  (max-width: 1279px){
+            transform: translate(15%, 0%);
+            --length: 200;
+        }
+        @media (min-width: 1280px) and  (max-width: 1439px){
+            transform: translate(15%, 0%);
+            --length: 200;
+        }
+
+        @media (min-width: 1440px) {
+            transform: translate(30%, 20%);
+            --length: 230;
+
+        }
+    }
+
+    .animate.animatedsvg {
+        animation: drawPath 2s ease-in-out forwards;
+
+    }
+
+
+
+    @keyframes drawPath {
+        0% {
+            stroke-dashoffset: var(--length);
+        }
+    
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+}

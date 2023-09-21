@@ -1,0 +1,28 @@
+.button {
+    display: inline-block;
+    border-radius: 0.25rem;
+    padding: 0.9rem 2.3rem;
+    background: var(--primary-gradient);
+    background-size: 200% 100%;
+    background-position: 0;
+    transition: all ease-in-out 350ms;
+    
+    &:hover {
+        background-position: 200% 0; 
+        animation: glow 1500ms 50ms linear infinite;
+        border-radius: 50px;
+
+    }
+
+    @keyframes glow {
+        0% {
+            background-position: 0;
+        }
+        50% {
+            background-position: 100%;
+        }
+        100% {
+            background-position: 0;
+        }
+    }
+}

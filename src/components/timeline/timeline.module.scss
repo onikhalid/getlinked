@@ -1,0 +1,116 @@
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h5 {
+        color: var(--purple-light);
+    }
+
+    .timelineItem {
+        display: flex;
+        align-items: last baseline;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 1000px;
+        min-height: 9rem;
+
+        &.reversed {
+            flex-direction: row-reverse;
+
+            .event-details {
+                text-align: left;
+            }
+
+            .event-date {
+                text-align: right;
+            }
+        }
+
+    }
+
+    .event-details {
+        text-align: right;
+        width: 50%;
+    }
+
+
+
+    .timeline-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 3rem;
+        min-width: max-content;
+        height: 100%;
+        min-height: 12rem;
+
+        .stick {
+            width: 0.25rem;
+            height: 0.25rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(270deg, #903AFF 0%, #D434FE 100%);
+            transition: height ease-in-out 400ms 400ms;
+
+        }
+
+        .animatestick {
+            height: 9rem;
+        }
+
+        .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(270deg, #903AFF 0%, #D434FE 100%);
+            border-radius: 50%;
+        }
+
+    }
+
+
+
+    .event-date {
+        width: 50%;
+    }
+
+
+
+
+
+
+    @media (max-width: 719px) {
+
+        .timelineItem,
+        .timelineItem.reversed {
+            display: grid;
+            grid-template-areas:  'x z' 'x z' 'x y';
+            justify-content: flex-start;
+
+            .timeline-indicator {
+                grid-area: x;
+                margin: 0 2.5vw;
+
+            }
+
+            .event-date {
+                grid-area: y;
+                text-align: left !important;
+                width: 100%;
+            }
+
+            .event-details {
+                grid-area: z;
+                text-align: left;
+                width: 100%;
+
+            }
+        }
+    }
+
+}

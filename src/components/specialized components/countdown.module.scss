@@ -1,0 +1,25 @@
+.countdowntimer {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+    
+    @media (max-width: 1019px) {
+        margin-top: 2.5rem;
+        justify-content: center;
+    }
+
+    h6 {
+        display: flex;
+        align-items: baseline;
+        font-weight: normal;
+        font-size: clamp(2.5rem, 7.5vw, 3.8rem);
+        letter-spacing: -0.25rem;
+
+
+        span {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+
+        }
+    }
+}

@@ -1,0 +1,256 @@
+.navbar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2.25rem 8.5rem 1rem;
+    border-bottom: solid 1px var(--invisible-grey);
+    z-index: 5;
+    background-color: var(--purple-thick);
+    backdrop-filter: blur(20px);
+
+
+    @media (max-width: 1019px) {
+        padding: 1.8rem 2.5rem 0.7rem;
+    }
+
+    .logo {
+        font-size: clamp(1.5rem, 2vw, 3rem);
+        font-weight: 700;
+
+        span {
+            color: var(--purple-light);
+        }
+    }
+
+
+
+
+
+
+
+
+
+    .menulinks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 7.5rem;
+
+
+        ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+
+            a {
+                background-image: linear-gradient(transparent calc(95% - 1.5px), var(--purple-mid) 0.75px, var(--purple-light) 0.75px), ;
+                transition: 0.5s ease;
+                background-size: 0;
+                background-repeat: no-repeat;
+                display: inline;
+
+                &:hover {
+                    color: var(--purple-light);
+                    font-style: italic;
+                    background-size: 100%;
+                }
+            }
+
+        }
+
+        .registerbutton {
+            margin-left: auto;
+        }
+
+
+        @media (max-width: 1019px) {
+            gap: 3.5rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 30px;
+            height: 30px;
+            padding: 0;
+            border-radius: 100px 0 100px 100px;
+            z-index: -10;
+            opacity: 0;
+            overflow: hidden;
+            transform-origin: top right;
+            transform: scale(0);
+
+
+
+            ul {
+                flex-direction: column;
+            }
+
+            &.open {
+                animation: burst-in 550ms ease-in-out forwards;
+            }
+
+            &.close {
+                opacity: 0;
+                z-index: -10;
+                animation: burst-out 550ms ease-in-out forwards;
+            }
+
+            @keyframes burst-in {
+                0% {
+                    border-radius: 100px 0 100px 100px;
+                    padding: 0;
+                    z-index: -10;
+                    opacity: 0;
+                    background-color: var(--purple-light);
+
+                }
+
+                1% {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 100px 0 100px 100px;
+                    opacity: 0.5;
+
+                }
+
+                100% {
+                    width: 100%;
+                    height: max-content;
+                    top: 0;
+                    right: 0;
+                    padding: 6.5rem 2.5rem;
+                    border-radius: 0;
+                    z-index: 9;
+                    opacity: 1;
+                    transform: scale(1);
+                    background-color: var(--purple-thick);
+                }
+            }
+
+
+
+            @keyframes burst-out {
+                0% {
+                    width: 100%;
+                    height: max-content;
+                    top: 0;
+                    right: 0;
+                    padding: 6.5rem 2.5rem;
+                    z-index: 9;
+                    opacity: 1;
+                    transform: scale(1);
+                    background-color: var(--purple-thick);
+                }
+
+                100% {
+                    border-radius: 100px 0 100px 100px;
+                    padding: 0;
+                    z-index: -10;
+                    opacity: 0;
+                    background-color: var(--purple-light);
+                    transform: scale(0);
+                    overflow: hidden;
+                    transform-origin: top right;
+                }
+            }
+
+        }
+    }
+
+
+
+
+
+
+    .hamburgermenu {
+        appearance: none;
+        width: 40px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        background: none;
+        border: none;
+        appearance: none;
+        z-index: 10;
+        transition: background 350ms ease-in-out;
+
+        .line {
+            width: 100%;
+            height: 5px;
+            background-color: var(--white);
+            position: absolute;
+            transition: transform 0.5s ease-in-out;
+            transition: all 0.5s ease-in-out;
+            margin-block: auto;
+            border-radius: 50px;
+        }
+
+        .line1 {
+            top: 0;
+            width: 50%;
+            transform-origin: 0 5px;
+        }
+
+        .line2 {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .line3 {
+            bottom: 0;
+            left: 50%;
+            width: 50%;
+            transform-origin: -16% 25px;
+        }
+
+        &.active .line1 {
+            transform: translateY(50%) rotate(45deg);
+            width: 80%;
+        }
+
+        &.active .line2 {
+            width: 0%;
+        }
+
+        &.active .line3 {
+            transform: translateY(-50%) rotate(-45deg);
+            width: 80%;
+        }
+
+        &.active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 1rem;
+            border-radius: 50%;
+            background-size: cover;
+            padding: 1.65rem;
+            transform: translateX(-25%) translateY(-15%);
+            animation: fade 350ms 100ms ease-in-out forwards;
+
+            @keyframes fade {
+                0% {
+                    background-image: none;
+                }
+
+                15% {
+                    background-image: none;
+                }
+
+                100% {
+
+                    background-image: url('/images/svg/circle-gradient.svg');
+                }
+            }
+
+        }
+    }
+}
