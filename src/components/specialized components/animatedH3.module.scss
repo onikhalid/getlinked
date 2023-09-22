@@ -18,34 +18,41 @@
 
 
     .animatedsvg {
-        --length: 150;
+        --length: 100;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(20%, 0%);
+        transform: translate(42%, -15%);
         stroke-dasharray: var(--length);
         stroke-dashoffset: var(--length);
         stroke: #FF26B9;
         stroke-width: 5;
         transition: stroke-dashoffset 250ms ease-out;
+        font-size: clamp(0.9rem, 1.95vw, 2.2rem);
 
-        @media (min-width: 720px) and (max-width: 1019px) {
-            transform: translate(15%, 0%);
+        
+        @media (min-width: 720px) and (max-width: 849px) {
+            transform: translate(30%, 0%);
+            --length: 120;
+        }
 
-            --length: 160;
+        @media (min-width: 850px) and (max-width: 1019px) {
+            transform: translate(30%, 0%);
+            --length: 150;
         }
 
         @media (min-width: 1020px) and  (max-width: 1279px){
-            transform: translate(15%, 0%);
-            --length: 200;
+            transform: translate(20%, 0%);
+            --length: 160;
         }
+
         @media (min-width: 1280px) and  (max-width: 1439px){
-            transform: translate(15%, 0%);
+            transform: translate(35%, 0%);
             --length: 200;
         }
 
         @media (min-width: 1440px) {
-            transform: translate(30%, 20%);
+            transform: translate(40%, 20%);
             --length: 230;
 
         }

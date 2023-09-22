@@ -75,7 +75,7 @@ const Navigation = () => {
                     {pages.map((page, index) => {
                         return (
                             <li key={index}>
-                                <Link href={page.path}>
+                                <Link href={page.path} onClick={() => setMobileNavState()}>
                                     {page.name}
                                 </Link>
                             </li>

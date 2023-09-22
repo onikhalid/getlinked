@@ -1,66 +1,71 @@
 import { useWindowWidth } from "@/utils/hooks/ResponsiveHook";
 
+
+
 const Flare = ({ top, right, bottom, left }) => {
     const width = useWindowWidth()
 
     const getTop = () => {
-        if (width < 720) {
+        if (width < 520) {
+            return top.xs
+        } else if (width >= 520 && width < 650) {
             return top.sm
-        } else if (width > 719 && width < 1024) {
+
+        } else if (width >= 650 && width < 780) {
             return top.md
 
-        } else if (width >= 1024 && width < 1440) {
+        } else if (width >= 780 && width < 1120) {
+            return top.tab
+
+        } else if (width >= 1120 && width < 1550) {
             return top.lg
 
-        } else if (width >= 1440) {
+        } else if (width >= 1550 && width < 2000) {
             return top.xl
         }
+        else if (width >= 2000) {
+            return top.xxl
+        }
     }
 
-    const getBottom = () => {
-
-    }
-
-    const getRight = () => {
-
-    }
 
     const getLeft = () => {
-        if (width < 720) {
+        if (width < 520) {
+            return left.xs
+        } else if (width >= 520 && width < 650) {
             return left.sm
-        } else if (width > 719 && width < 1024) {
+
+        } else if (width >= 650 && width < 780) {
             return left.md
 
-        } else if (width >= 1024 && width < 1560) {
+        } else if (width >= 780 && width < 1120) {
+            return left.tab
+
+        } else if (width >= 1120 && width < 1550) {
             return left.lg
-        }else if (width >= 1560 && width < 1920) {
+
+        } else if (width >= 1550 && width < 2000) {
             return left.xl
-        }else if (width >= 1920) {
+        }
+        else if (width >= 2000) {
             return left.xxl
         }
-    
-
     }
 
-    const divStyle = {
+    const style = {
         position: 'absolute',
         top: getTop(),
-        // right,
         zIndex: '0 !important',
         left: getLeft(),
-        // bottom,
         mixBlendMode: 'hard-light',
-        opacity: 0.95,
+        opacity: '0.95 !important',
         width: '100vw',
-        maxWidth: '950px',
+        maxWidth: '700px !important',
     };
 
 
     return (
-        <img src={'/images/flares/purple_flare_circle.png'}
-            style={divStyle}
-
-        />
+        <img src={'/images/flares/purple_flare_circle.png'} style={style} aria-hidden="true" />
     )
 }
 

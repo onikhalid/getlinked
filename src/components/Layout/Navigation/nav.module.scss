@@ -7,7 +7,7 @@
     padding: 2.25rem 8.5rem 1rem;
     border-bottom: solid 1px var(--invisible-grey);
     z-index: 5;
-    background-color: var(--purple-thick);
+    background-color: rgba(21, 14, 40, 0.5);
     backdrop-filter: blur(20px);
 
 
@@ -44,26 +44,38 @@
             gap: 2.5rem;
             list-style: none;
 
+
+
+
             a {
-                background-image: linear-gradient(transparent calc(95% - 1.5px), var(--purple-mid) 0.75px, var(--purple-light) 0.75px), ;
+                background-image: linear-gradient(var(--purple-bright) 50%, var(--purple-light) 100%), ;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                background-clip: text;
                 transition: 0.5s ease;
                 background-size: 0;
                 background-repeat: no-repeat;
                 display: inline;
 
                 &:hover {
-                    color: var(--purple-light);
-                    font-style: italic;
+                    color: transparent;
                     background-size: 100%;
                 }
             }
 
         }
 
-        .registerbutton {
-            margin-left: auto;
+        a {
+            margin-top: 0;
         }
 
+
+
+        @media (min-width: 720px) and (max-width: 1019px)  {
+            align-items: center;
+            justify-content: center !important;
+            text-align: center;
+        }
 
         @media (max-width: 1019px) {
             gap: 3.5rem;
@@ -167,8 +179,8 @@
 
     .hamburgermenu {
         appearance: none;
-        width: 40px;
-        height: 30px;
+        width: 35px;
+        height: 25px;
         position: relative;
         cursor: pointer;
         display: flex;
@@ -181,7 +193,7 @@
 
         .line {
             width: 100%;
-            height: 5px;
+            height: 4px;
             background-color: var(--white);
             position: absolute;
             transition: transform 0.5s ease-in-out;
@@ -205,7 +217,7 @@
             bottom: 0;
             left: 50%;
             width: 50%;
-            transform-origin: -16% 25px;
+            transform-origin: -13% 24px;
         }
 
         &.active .line1 {
@@ -232,8 +244,8 @@
             padding: 1rem;
             border-radius: 50%;
             background-size: cover;
-            padding: 1.65rem;
-            transform: translateX(-25%) translateY(-15%);
+            padding: 1.35rem;
+            transform: translateX(-24%) translateY(-13%);
             animation: fade 350ms 100ms ease-in-out forwards;
 
             @keyframes fade {

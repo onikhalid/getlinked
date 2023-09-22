@@ -1,0 +1,192 @@
+@import '/src/app/mixins.scss';
+
+.contact {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    @include padding;
+    @include padding-three;
+    border-bottom: none;
+    padding-block: 10rem 7.5rem !important;
+    max-width: 1500px;
+
+    @media (max-width: 1199px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+
+
+    .contactdetails {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        >img:nth-child(2) {
+            max-width: 650px;
+        }
+
+        img.registerimageImg {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+
+            @media (max-width: 1019px) {
+                width: 80%;
+                max-width: 500px;
+                ;
+            }
+        }
+    }
+
+
+
+
+    .container {
+        position: relative;
+        flex: 1;
+        border-radius: 0.75rem;
+        width: 80vw;
+        max-width: 450px;
+
+        img {
+            width: 100vw;
+            max-width: 650px;
+        }
+
+        @media (min-width: 720px) {
+            padding: 2.5rem;
+        }
+
+        @media (min-width: 720px) and (max-width: 1019px) {
+            max-width: 550px;
+        }
+
+        @media (min-width: 1020px) {
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            max-width: 600px;
+        }
+
+        aside {
+            h3 {
+                color: var(--purple-light);
+                font-size: clamp(1.65rem, 2.0vw, 2.2rem);
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+
+            margin-bottom: 1.5rem;
+        }
+
+
+
+
+        form {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            // align-items: center;
+            gap: 1.5rem;
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+                width: 100%;
+
+
+                .inputdiv {
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 0.5rem;
+                    width: 100%;
+
+                    label {
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                        margin-bottom: 0.5rem;
+
+                    }
+
+                    input,
+                    textarea {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        resize: none;
+                        outline: none;
+                        background-color: transparent;
+                        padding: 0.85rem;
+                        border: solid 2px white;
+                        border-radius: 6px;
+                        font-size: 0.85rem;
+                        font-family: var(--text-montserrat);
+                        transition: all ease-in-out 350ms;
+
+                        &:focus,
+                        &:focus-visible {
+                            outline: none;
+                            border-right: solid 2px var(--purple-light);
+                            border-top: solid 2px var(--purple-bright);
+                            border-bottom: solid 2px var(--purple-light);
+                            border-left: solid 2px var(--purple-bright);
+                        }
+                    }
+
+                }
+
+            }
+        }
+
+    }
+
+
+
+
+
+    button {
+        display: inline-block;
+        align-self: center;
+        justify-self: center;
+        border: solid 2px transparent;
+        border-radius: 0.25rem;
+        padding: 0.9rem 2.3rem;
+        background: var(--primary-gradient);
+        background-size: 200% 100%;
+        background-position: 0;
+        margin-top: 1rem;
+        cursor: pointer;
+        color: white;
+        font-size: 1rem;
+        transition: all ease-in-out 350ms;
+
+
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-right: solid 2px var(--purple-light);
+            border-top: solid 2px var(--purple-bright);
+            border-bottom: solid 2px var(--purple-light);
+            border-left: solid 2px var(--purple-bright);
+        }
+
+
+
+
+    }
+
+
+}

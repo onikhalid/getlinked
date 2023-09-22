@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './animatedH3.module.scss';
 import { useWindowWidth } from '@/utils/hooks/ResponsiveHook';
 import { montserrat } from '@/app/layout';
+import Typewriter from './typewriter';
 
 
 
@@ -12,25 +13,33 @@ function AnimatedH3() {
     const width = useWindowWidth();
 
     useEffect(() => {
-        setAnimationStarted(true);
+        setTimeout(() => {
+            setAnimationStarted(true);
+        }, 3500);
     }, []);
 
 
-    const length = ()=>{
+    const length = () => {
         if (width < 720) {
+            return '100'
+        }
+        else if (width < 850) {
+            return '120'
+        }
+        else if (width < 1020) {
             return '150'
         }
-        else if (width < 1019) {
+        else if (width < 1280) {
             return '160'
         }
-        else if (width < 1345) {
+        else if (width < 1440) {
             return '200'
         }
         else return '230'
     }
     return (
         <div className={`${styles.headercontainer} ${montserrat.className}`}>
-            <h3 className={styles.headertext}>Igniting a Revolution in HR Innovation</h3>
+            <h3 className={styles.headertext}><Typewriter text={'Igniting a Revolution in HR Innovation'} /></h3>
             <svg
                 className={`${styles.animatedsvg} ${animationStarted ? `${styles.animate}` : ''}`}
                 width={length()}

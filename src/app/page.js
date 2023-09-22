@@ -25,9 +25,8 @@ export default function Home() {
         <section className={`section ${styles.hero}`} aria-label="Hero Section">
           <AnimatedH3 />
           <Flare
-            top={{ sm: '5%', md: '0%', tab: '5%', lg: '-20%', xl: '-15%', xxl: '-15%' }}
-            left={{ sm: '-10%', md: '-10%', tab: '0%', lg: '0%', xl: '5%', xxl: '10%' }}
-            aria-hidden="true"
+            top={{ sm: '5%', md: '5%', tab: '5%', lg: '-10%', xl: '-10%', xxl: '-5%' }}
+            left={{ sm: '-10%', md: '-10%', tab: '-10%', lg: '10%', xl: '10%', xxl: '10%' }}
           />
 
           <div className={styles.herocontent}>
@@ -93,9 +92,8 @@ export default function Home() {
           <div className={styles.rulesimage}>
             <img src={'/images/featured/sitting_woman.webp'} alt='sitting woman' />
             <Flare
-              top={{ sm: '-25%', md: '40%', tab: '50%', lg: '30%', xl: '-10%', xxl: '0%' }}
-              left={{ sm: '-35%', md: '60%', tab: '10%', lg: '50%', xl: '20%', xxl: '20%' }}
-              aria-hidden="true"
+              top={{ xs: "-40%", sm: '-45%', md: '-55%', tab: '-15%', lg: '20%', xl: '22%', xxl: '20%' }}
+              left={{ xs: "-45%", sm: '-55%', md: '-70%', tab: '0%', lg: '30%', xl: '45%', xxl: '45%' }}
             />
           </div>
 
@@ -110,9 +108,8 @@ export default function Home() {
               that&apos;s what we&apos;re all about!
             </p>
             <Flare
-              top={{ sm: '-30%', md: '-25%', tab: '50%', lg: '-50%', xl: '-80%', xxl: '-85%' }}
-              left={{ sm: '70%', md: '30%', tab: '10%', lg: '20%', xl: '-10%', xxl: '-5%' }}
-              aria-hidden="true"
+              top={{ xs: "-55%", sm: '-70%', md: '-100%', tab: '-70%', lg: '-70%', xl: '-70%', xxl: '-65%' }}
+              left={{ xs: "40%", sm: '40%', md: '40%', tab: '-35%', lg: '-15%', xl: '-7%', xxl: '-5%' }}
             />
           </div>
 
@@ -130,9 +127,8 @@ export default function Home() {
           <div className={styles.criteriaimage}>
             <img src={'/images/featured/statistics.png'} alt='judging and evaluating' />
             <Flare
-              top={{ sm: '25%', md: '25%', tab: '50%', lg: '15%', xl: '5%', xxl: '5%' }}
-              left={{ sm: '-25%', md: '-25%', tab: '10%', lg: '-15%', xl: '-30%', xxl: '-30%' }}
-              aria-hidden="true"
+              top={{ xs: "-15%", sm: '-35%', md: '-40%', tab: '0%', lg: '0%', xl: '25%', xxl: '25%' }}
+              left={{ xs: "-45%", sm: '-75%', md: '-75%', tab: '-40%', lg: '-40%', xl: '-15%', xxl: '-10%' }}
             />
           </div>
 
@@ -173,8 +169,8 @@ export default function Home() {
 
             <Button className={styles.registerbutton} name={'Register'} link={'/register'} />
             <Flare
-              top={{ sm: '65%', md: '40%', tab: '50%', lg: '50%', xl: '55%', xxl: '55%' }}
-              left={{ sm: '55%', md: '60%', tab: '10%', lg: '45%', xl: '-30%', xxl: '0%' }}
+              top={{ xs: "50%", sm: '35%', md: '35%', tab: '30%', lg: '60%', xl: '55%', xxl: '55%' }}
+              left={{ xs: "50%", sm: '50%', md: '55%', tab: '40%', lg: '50%', xl: '50%', xxl: '50%' }}
             />
           </div>
         </section>
@@ -259,18 +255,16 @@ export default function Home() {
           <div className={styles.trophy}>
             <img className={styles.trophyimage} src={'/images/featured/trophy.webp'} alt="winner's trophy" />
             <Flare
-              top={{ sm: '-35%', md: '-30%', tab: '-30%', lg: '-40%', xl: '-60%', xxl: '-70%' }}
-              left={{ sm: '-10%', md: '30%', tab: '30%', lg: '20%', xl: '-20%', xxl: '-25%' }}
-              aria-hidden="true"
+              top={{ xs: "-45%", sm: '-55%', md: '-55%', tab: '-65%', lg: '-50%', xl: '-60%', xxl: '-70%' }}
+              left={{ xs: "-5%", sm: '-15%', md: '-20%', tab: '-30%', lg: '-30%', xl: '-20%', xxl: '-25%' }}
             />
           </div>
 
           <div className={styles.prizes}>
             <img className={styles.prizesimage} src={'/images/featured/prizes.webp'} alt="winners' rewards" />
             <Flare
-              top={{ sm: '15%', md: '-15%', tab: '5%', lg: '30%', xl: '5%', xxl: '5%' }}
-              left={{ sm: '60%', md: '-70%', tab: '60%', lg: '60%', xl: '60%', xxl: '67%' }}
-              aria-hidden="true"
+              top={{ xs: "-20%", sm: '-50%', md: '-50%', tab: '-50%', lg: '0%', xl: '5%', xxl: '5%' }}
+              left={{ xs: "60%", sm: '60%', md: '60%', tab: '30%', lg: '60%', xl: '60%', xxl: '67%' }}
             />
           </div>
         </section>
@@ -293,14 +287,12 @@ export default function Home() {
           <div className={styles.partners} >
             <img className={styles.partnersimage} src={'/images/featured/partners_sponsors.png'} alt='sponsors' />
             <Flare
-              top={{ sm: '-50%', md: '-40%', tab: '-50%', lg: '-50%', xl: '-60%', xxl: '-100%' }}
-              left={{ sm: '-20%', md: '-10%', tab: '-12%', lg: '-12%', xl: '-15%', xxl: '-35%' }}
-              aria-hidden="true"
+              top={{ xs: '-200%', sm: '-170%', md: '-180%', tab: '-110%', lg: '-55%', xl: '-50%', xxl: '-45%' }}
+              left={{ xs: '-30%', sm: '-30%', md: '-40%', tab: '-40%', lg: '-28%', xl: '-23%', xxl: '-20%' }}s
             />
             <Flare
-              top={{ sm: '15%', md: '30%', tab: '5%', lg: '30%', xl: '5%', xxl: '5%' }}
-              left={{ sm: '60%', md: '72%', tab: '60%', lg: '80%', xl: '75%', xxl: '60%' }}
-              aria-hidden="true"
+              top={{ xs: '5%', sm: '5%', md: '-40%', tab: '5%', lg: '35%', xl: '40%', xxl: '40%' }}
+              left={{ xs: '55%', sm: '60%', md: '50%', tab: '60%', lg: '70%', xl: '75%', xxl: '75%' }}
             />
           </div>
 
@@ -309,6 +301,11 @@ export default function Home() {
 
 
 
+
+
+      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////           SECURITY           /////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured} ${styles.security}`}>
 
           <div className={`${montserrat.className} ${styles.texts}`}>
@@ -343,9 +340,8 @@ export default function Home() {
             </article>
 
             <Flare
-              top={{ sm: '50%', md: '40%', tab: '50%', lg: '55%', xl: '55%', xxl: '65%' }}
-              left={{ sm: '-20%', md: '10%', tab: '10%', lg: '5%', xl: '0%', xxl: '0%' }}
-              aria-hidden="true"
+              top={{ xs: '38%', sm: '28%', md: '28%', tab: '50%', lg: '60%', xl: '55%', xxl: '65%' }}
+              left={{ xs: '-20%', sm: '-20%', md: '-15%', tab: '-15%', lg: '-5%', xl: '0%', xxl: '0%' }}
             />
           </div>
 

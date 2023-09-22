@@ -1,28 +1,32 @@
 .button {
     display: inline-block;
+    border: solid 2px transparent;
     border-radius: 0.25rem;
     padding: 0.9rem 2.3rem;
     background: var(--primary-gradient);
     background-size: 200% 100%;
     background-position: 0;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
     transition: all ease-in-out 350ms;
-    
+
+    &:disabled {
+        background: var(--primary-gradient);
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
     &:hover {
-        background-position: 200% 0; 
-        animation: glow 1500ms 50ms linear infinite;
-        border-radius: 50px;
-
+        background: var(--purple-thick);
+        border-right: solid 2px var(--purple-light);
+        border-top: solid 2px var(--purple-bright);
+        border-bottom: solid 2px var(--purple-light);
+        border-left: solid 2px var(--purple-bright);
     }
 
-    @keyframes glow {
-        0% {
-            background-position: 0;
-        }
-        50% {
-            background-position: 100%;
-        }
-        100% {
-            background-position: 0;
-        }
-    }
+
+
+
 }
