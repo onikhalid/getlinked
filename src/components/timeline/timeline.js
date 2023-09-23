@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './timeline.module.scss';
 import { montserrat } from '@/app/layout';
+import { useWindowWidth } from '@/utils/hooks/ResponsiveHook';
 
 function Timeline() {
   const timelineRef = useRef(null);
+  const width = useWindowWidth();
 
   const timelineData = [
     {
@@ -52,12 +54,23 @@ function Timeline() {
 
   ];
 
+  const rootmargin = () => {
+    if (width < 720) {
+      return '-50px'
 
+    } else if (width >= 720 && width < 1024) {
+
+      return '-125px'
+    }
+    else if (width >= 1024) {
+      return '-225px'
+    }
+  }
 
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: '-225px',
+      rootMargin: rootmargin(),
       threshold: 1,
     };
 
