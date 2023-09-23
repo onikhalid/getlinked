@@ -51,6 +51,88 @@
           max-width: 40ch;
         }
 
+        .adornment {
+          position: absolute;
+          top: -18%;
+          right: -17%;
+          width: 30vw;
+
+
+
+          @media (max-width: 450px) {
+            top: -6%;
+            right: -17%;
+            width: 20vw;
+            max-width: 120px;
+          }
+
+          @media (min-width: 500px) and (max-width: 599px) {
+            top: -15%;
+            right: -22%;
+            width: 20vw;
+            max-width: 120px;
+          }
+
+          @media (min-width: 600px) and (max-width: 719px) {
+            top: -15%;
+            right: -22%;
+            max-width: 120px;
+          }
+
+          @media (min-width: 720px) and (max-width: 849px) {
+            top: -13%;
+            right: -20%;
+            max-width: 120px;
+          }
+
+          @media (min-width: 850px) and (max-width: 1019px) {
+            top: -10%;
+            right: -20%;
+            max-width: 120px;
+          }
+
+          @media (min-width: 1020px) and (max-width: 1279px) {
+            top: -9%;
+            right: -11%;
+            max-width: 135px;
+          }
+
+          @media (min-width: 1280px) and (max-width: 1439px) {
+            top: -9%;
+            right: -9%;
+            max-width: 150px;
+          }
+
+          @media (min-width: 1440px)and (max-width: 1649px) {
+            top: -17%;
+            right: 0%;
+            max-width: 200px;
+          }
+
+          @media (min-width: 1649px)and (max-width: 1879px) {
+            top: -17%;
+            right: 12%;
+            max-width: 200px;
+          }
+
+          @media (min-width: 1880px)and (max-width: 2099px) {
+            top: -17%;
+            right: 24%;
+            max-width: 200px;
+          }
+
+          @media (min-width: 2100px) {
+            top: -17%;
+            right: 21%;
+            max-width: 200px;
+          }
+
+
+
+
+
+        }
+
         @media (max-width: 1019px) {
           text-align: center;
 
@@ -178,6 +260,12 @@
 
     .texts {
       max-width: 600px;
+      opacity: 0.1;
+      transition: opacity ease-in-out 250ms;
+
+      &.animTexts {
+        opacity: 1;
+      }
 
       p.p {
         span {
@@ -457,6 +545,7 @@
         @media (min-width: 1020px) and (max-width: 1179px) {
           padding: 3.5rem;
         }
+
         @media (min-width: 1180px) and (max-width: 1279px) {
           padding: 7.5rem;
 
@@ -483,7 +572,7 @@
     &.security {
       position: relative;
       padding-block: 7.5rem;
-      
+
       header {
         align-items: flex-start;
         gap: 0.75rem;
@@ -619,10 +708,10 @@
     transition: 0.5s ease;
 
     &:hover {
-        color: transparent;
-        background-size: 100%;
+      color: transparent;
+      background-size: 100%;
     }
-}
+  }
 
   @media (max-width: 449px) {
     width: 100%;

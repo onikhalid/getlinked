@@ -11,6 +11,7 @@ import Flare from '@/components/specialized components/flare'
 import { useWindowWidth } from '@/utils/hooks/ResponsiveHook'
 import Timeline from '@/components/timeline/timeline'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 
 
@@ -19,9 +20,41 @@ export default function Home() {
 
 
 
+
+
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '1px',
+      threshold: 1,
+    };
+
+    const handleIntersection = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animTexts);
+        }
+      });
+    };
+
+    const textElements = document.querySelectorAll(`.${styles.texts}`);
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+    textElements.forEach((textElement) => {
+      observer.observe(textElement);
+    });
+
+  }, []);
+
+
+
+
+
+
   return (
     <>
-    <title>Home | Getlinked</title>
+      <title>Home | Getlinked</title>
       <main className={`container ${styles.main}`}>
         <section className={`section ${styles.hero}`} aria-label="Hero Section">
           <AnimatedH3 />
@@ -37,6 +70,7 @@ export default function Home() {
                 Participate in getlinked tech Hackathon 2023 stand
                 a chance to win a Big prize
               </p>
+              <img src={'/images/hero/text_adorn.png'} className={styles.adornment} />
 
               <Button className={styles.registerbutton} name={'Register'} link={'/register'} />
               <CountdownTimer targetDate={new Date('2023-11-18T23:59:59')} />
@@ -62,7 +96,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           OVERVIEW           /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured}`} id='overview'>
@@ -86,7 +120,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           RULES           /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured}  ${styles.rules}`}>
@@ -121,7 +155,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           CRITERIAS           /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured} ${styles.criterias}`}>
@@ -181,7 +215,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           QUESTIONS         /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured} ${styles.faqs}`} id='faqs'>
@@ -274,7 +308,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           SPONSORS           /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured} ${styles.partnersandsponsors}`}>
@@ -289,7 +323,7 @@ export default function Home() {
             <img className={styles.partnersimage} src={'/images/featured/partners_sponsors.png'} alt='sponsors' />
             <Flare
               top={{ xs: '-200%', sm: '-170%', md: '-180%', tab: '-110%', lg: '-55%', xl: '-50%', xxl: '-45%' }}
-              left={{ xs: '-30%', sm: '-30%', md: '-40%', tab: '-40%', lg: '-28%', xl: '-23%', xxl: '-20%' }}s
+              left={{ xs: '-30%', sm: '-30%', md: '-40%', tab: '-40%', lg: '-28%', xl: '-23%', xxl: '-20%' }} s
             />
             <Flare
               top={{ xs: '5%', sm: '5%', md: '-40%', tab: '5%', lg: '35%', xl: '40%', xxl: '40%' }}
@@ -304,7 +338,7 @@ export default function Home() {
 
 
 
-      {/* /////////////////////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////////////////////// */}
         {/* /////////////////           SECURITY           /////////////////// */}
         {/* /////////////////////////////////////////////////////////////////// */}
         <section className={`section ${styles.featured} ${styles.security}`}>
@@ -347,7 +381,7 @@ export default function Home() {
           </div>
 
           <div className={styles.securityimage}>
-            <img src={'/images/featured/man_lock.webp'} alt='Security Man with a Lock'/>
+            <img src={'/images/featured/man_lock.webp'} alt='Security Man with a Lock' />
           </div>
         </section>
 
@@ -384,9 +418,9 @@ export default function Home() {
 
             <span>Follow us
               <ul>
-                <li><Link href={'https://www.instagram.com'}><Image src={'/images/logos/insta.svg'} width={22} height={22} alt="Instagram"/></Link></li>
-                <li><Link href={'https://www.twitter.com'}><Image src={'/images/logos/tweet.svg'} width={20} height={20} alt="Twitter/X"/></Link></li>
-                <li><Link href={'https://www.facebook.com'}><Image src={'/images/logos/book.svg'} width={20} height={20} alt="Facebook"/></Link></li>
+                <li><Link href={'https://www.instagram.com'}><Image src={'/images/logos/insta.svg'} width={22} height={22} alt="Instagram" /></Link></li>
+                <li><Link href={'https://www.twitter.com'}><Image src={'/images/logos/tweet.svg'} width={20} height={20} alt="Twitter/X" /></Link></li>
+                <li><Link href={'https://www.facebook.com'}><Image src={'/images/logos/book.svg'} width={20} height={20} alt="Facebook" /></Link></li>
                 <li><Link href={'https://www.linkedin.com'}><Image src={'/images/logos/linkedin.svg'} width={26} height={26} alt="LinkedIn" /></Link></li>
               </ul>
 
@@ -398,7 +432,7 @@ export default function Home() {
           <section className={styles.contact}>
             <h6>Contact Us</h6>
             <ul>
-              <li><Link href={'tel:+23467981819'}><Image src={'/images/svg/phone.svg'} width={20} height={20} alt="Phone Icon"/> +234 679 81819</Link></li>
+              <li><Link href={'tel:+23467981819'}><Image src={'/images/svg/phone.svg'} width={20} height={20} alt="Phone Icon" /> +234 679 81819</Link></li>
               <li><Link href={"https://www.google.com/maps?q=27+Alara+Street,+Yaba,+100012,+Lagos+State"} target="_blank"><Image src={'/images/svg/map.svg'} width={20} height={20} alt="Map Icon" /> 27,Alara Street Yaba 100012 Lagos State</Link></li>
             </ul>
           </section>

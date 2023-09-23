@@ -6,19 +6,24 @@ import { useWindowWidth } from '@/utils/hooks/ResponsiveHook'
 import axios from 'axios'
 import Image from 'next/image'
 import Flare from '@/components/specialized components/flare'
+import Star from '@/components/specialized components/star'
+import Button from '@/components/button/button'
 
 
 
 const Page = () => {
     const width = useWindowWidth()
     const [teamName, setTeamName] = useState('');
-    const [phone, setPhone] = useState('poss');
+    const [phone, setPhone] = useState(8012345678);
     const [email, setEmail] = useState('');
     const [topic, setTopic] = useState('');
     const [category, setCategory] = useState(-1);
     const [size, setSize] = useState('');
     const [categoriesList, setCategoriesList] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
+
+    const [congratState, setCongratState] = useState(`${styles.congrats}`);
+
 
 
     const handleCheckboxChange = () => {
@@ -51,12 +56,12 @@ const Page = () => {
 
         const registerData = {
             email: email,
-            phone_number: phone,
             team_name: teamName,
-            group_size: size,
+            phone_number: phone,
             project_topic: topic,
-            category: category,
+            group_size: size,
             privacy_policy_accepted: true,
+            category: category,
         }
 
         try {
@@ -72,10 +77,6 @@ const Page = () => {
 
 
             if (response.status >= 200 && response.status < 300) {
-                // Display a congratulatory message and clear the form
-                setSuccessMessage('Congratulations! Your registration was successful.');
-                setIsSubmitted(true);
-
                 setTeamName('');
                 setPhone('');
                 setEmail('');
@@ -83,6 +84,7 @@ const Page = () => {
                 setCategory(-1);
                 setSize('');
                 setIsChecked(false);
+                setCongratState(`${styles.congrats} ${styles.open}`)
             } else {
 
                 console.error('Registration Failed:', response.data);
@@ -90,7 +92,8 @@ const Page = () => {
 
             console.log(response.data);
         } catch (error) {
-            console.error(error);
+            console.error('Error:', error);
+            console.log('Server Response:', error.response.data);
         }
     };
 
@@ -163,9 +166,10 @@ const Page = () => {
                             <div className={`${montserrat.className} ${styles.inputdiv}`}>
                                 <label htmlFor='category'>Category</label>
                                 <select id='category' type='text' placeholder='Choose a category' required
-                                    value={category} onChange={(e) => setCategory(e.target.value)}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    value={category}
                                 >
-                                    <option value={-1} disabled selected>Choose  Category</option>
+                                    <option value={-1} disabled>Choose Category</option>
                                     {
                                         categoriesList.map((category, index) => {
                                             return (
@@ -206,6 +210,20 @@ const Page = () => {
 
                 </form>
 
+
+                <Star color={'grey'} delay={0}
+                    top={{ xs: "10%", sm: '10%', md: '10%', tab: '10%', lg: '-8%', xl: '-8%', xxl: '-8%' }}
+                    left={{ xs: "80%", sm: '80%', md: '80%', tab: '85%', lg: '85%', xl: '85%', xxl: '85%' }}
+                />
+                <Star color={'white'} delay={2}
+                    top={{ xs: "100%", sm: '100%', md: '100%', tab: '100%', lg: '100%', xl: '100%', xxl: '100%' }}
+                    left={{ xs: "100%", sm: '100%', md: '100%', tab: '105%', lg: '115%', xl: '115%', xxl: '115%' }}
+                />
+                <Star color={'purple'} delay={6}
+                    top={{ xs: "70%", sm: '70%', md: '70%', tab: '70%', lg: '70%', xl: '70%', xxl: '70%' }}
+                    left={{ xs: "-2%", sm: '-2%', md: '-2%', tab: '-2%', lg: '-2%', xl: '-2%', xxl: '-2%' }}
+                />
+
                 {
                     width > 1119 &&
                     <Flare
@@ -215,7 +233,19 @@ const Page = () => {
                 }
 
 
+
             </section>
+
+
+            <section className={congratState}>
+                <article>
+                    <img src={'/images/register/congratulation.png'} />
+                    <h3 className={montserrat.className}>Congratulations<br/> you have successfully Registered!</h3>
+                    <p className={montserrat.className}>Yes, it was easy and you did it!<br/> check your mail box for next step</p>
+                    <Button name={'Back'} action link={() => setCongratState(`${styles.congrats} ${styles.close}`)} />
+                </article>
+            </section>
+
         </main>
     )
 }

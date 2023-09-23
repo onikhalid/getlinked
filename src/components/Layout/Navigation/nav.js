@@ -89,12 +89,12 @@ const Navigation = () => {
             {
                 width < 1020 &&
                 <button
-                    class={hamburgerClass()}
+                    className={hamburgerClass()}
                     onClick={() => setMobileNavState()}
                 >
-                    <div class={`${styles.line} ${styles.line1}`}></div>
-                    <div class={`${styles.line} ${styles.line2}`}></div>
-                    <div class={`${styles.line} ${styles.line3}`}></div>
+                    <div className={`${styles.line} ${styles.line1}`}></div>
+                    <div className={`${styles.line} ${styles.line2}`}></div>
+                    <div className={`${styles.line} ${styles.line3}`}></div>
                 </button>
             }
 

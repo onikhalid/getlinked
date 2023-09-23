@@ -138,7 +138,7 @@
                     gap: 1.5rem;
                     width: 100%;
 
-                 
+
                     &>div:nth-child(2) {
                         width: 60% !important;
                     }
@@ -183,7 +183,7 @@
                         border-left: solid 2px var(--purple-bright);
                     }
                 }
-              
+
                 select option {
                     background-color: var(--purple-thick);
 
@@ -202,14 +202,17 @@
                     transform: translateY(-50%);
                     pointer-events: none;
                 }
-                .dropdown{
+
+                .dropdown {
                     position: absolute;
                     top: 50%;
                     right: 5%;
-                    img{
-                        width: 15px ;
+
+                    img {
+                        width: 15px;
 
                     }
+
                     height: auto;
                 }
 
@@ -271,6 +274,131 @@
 
         }
 
+    }
+
+
+
+
+
+
+    .congrats {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding-inline: 10vw;
+        background-color: rgba(21, 14, 40, 0.5);
+        backdrop-filter: blur(20px);
+        z-index: -25;
+        transform: scale(0);
+        opacity: 0;
+
+
+        @media (min-width: 1020px) {
+            padding: 10vh 10vw;
+        }
+
+
+        article {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 5vw;
+            border: solid 2px var(--purple-bright);
+            border-radius: 12px;
+
+            @media (min-width: 1020px) and (max-width: 1279px) {
+                width: 50vw;
+                max-width: 700px;
+                align-self: center;
+
+                img {
+                    width: 30vw !important;
+                    max-width: 450px;
+                }
+            }
+
+            @media (min-width: 1280px) and (max-width: 1549px) {
+                width: 50vw;
+                max-width: 700px;
+                align-self: center;
+
+                img {
+                    width: 20vw !important;
+                    max-width: 400px;
+                }
+            }
+
+
+
+                
+            h3 {
+                text-align: center;
+                font-size: clamp(1.35rem, 2vw, 2.2rem);
+                font-weight: 600;
+            }
+
+            p {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            img {
+                width: 60vw;
+                max-width: 450px;
+            }
+
+            button {
+                width: 100% !important;
+            }
+        }
+
+        &.open {
+            animation: openmodal 450ms ease-in-out forwards;
+        }
+
+        &.close {
+            animation: closemodal 450ms ease-in-out forwards;
+
+        }
+
+
+        @keyframes openmodal {
+            from {
+                z-index: -25;
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            to {
+                z-index: 25;
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes closemodal {
+            from {
+                z-index: 25;
+                transform: scale(1);
+                opacity: 1;
+
+            }
+
+            to {
+                z-index: -25;
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
     }
 
 }

@@ -10,7 +10,6 @@
     padding-block: 10rem 7.5rem !important;
     max-width: 1500px;
     gap: 10vw;
-    // justify-content: space-between;
 
     @media (max-width: 1019px) {
         display: flex;
@@ -30,6 +29,21 @@
         gap: 3rem;
         flex: 1;
         justify-content: center;
+        animation: slide 400ms 150ms ease-in-out forwards;
+
+
+
+        @keyframes slide {
+            0% {
+                // transform: translateX(-100%);
+                left: -100%;
+            }
+
+            100% {
+                // transform: translateX(0%);
+                left: initial;
+            }
+        }
 
 
         >img:nth-child(3) {
@@ -50,11 +64,12 @@
             gap: 1.5rem;
 
 
-            >li:nth-child(3) ,  >li:nth-child(4) {
+            >li:nth-child(3),
+            >li:nth-child(4) {
                 max-width: 22ch;
             }
 
-             >li:nth-child(5) {
+            >li:nth-child(5) {
                 margin-top: 1rem;
             }
 
@@ -111,7 +126,7 @@
         max-width: 450px;
 
         img {
-            width: 40vw !important;
+            width: 35vw !important;
             max-width: 600px;
         }
 
@@ -120,10 +135,11 @@
             padding: 2.5rem;
             max-width: 600px;
         }
+
         @media (min-width: 1020px) and (max-width: 1249px) {
             padding: 2rem 3rem;
         }
-        
+
 
         @media (min-width: 1250px) {
             padding: 2.5rem 4rem;
@@ -245,6 +261,47 @@
 
 
 
+    }
+
+
+
+
+
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+        align-self: center;
+        margin-top: 1.5rem;
+
+        span {
+            color: var(--purple-light);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+
+
+            img {
+                max-width: 25px;
+                height: auto;
+                max-height: 25px;
+                object-fit: none;
+                aspect-ratio: 1/1;
+            }
+
+            li {
+                display: block;
+
+            }
+        }
     }
 
 

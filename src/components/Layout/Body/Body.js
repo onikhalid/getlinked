@@ -8,15 +8,6 @@ import Navigation from "../Navigation/nav"
 
 const Body = ({ children }) => {
 
-
-
-
-
-
-
-
-
-
   return (
     <body data-theme={'theme'} className={styles.body}>
 
@@ -27,11 +18,6 @@ const Body = ({ children }) => {
       <Suspense fallback={<p>Loading...</p>}>
         {children}
       </Suspense>
-
-
-
-
-      {/* <span role="button" tabIndex="0" className={isVisible ? `${styles.topbtn}` : `${styles.topbtn} ${styles.hidden}`} onClick={scrollToTop}></span> */}
     </body>
   )
 }

@@ -1,0 +1,22 @@
+.star {
+
+    animation: glow 2500ms ease-in-out infinite forwards;
+
+    @keyframes glow {
+        from {
+            opacity: initial;
+            transform: scale(1);
+        }
+
+        50% {
+            opacity: 0.25;
+            transform: scale(0.65);
+        }
+
+        to {
+            opacity: initial;
+            transform: scale(1);
+        }
+
+    }
+}
