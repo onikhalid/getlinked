@@ -21,6 +21,7 @@ export default function Home() {
 
   return (
     <>
+    <title>Home | Getlinked</title>
       <main className={`container ${styles.main}`}>
         <section className={`section ${styles.hero}`} aria-label="Hero Section">
           <AnimatedH3 />

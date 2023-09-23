@@ -17,7 +17,6 @@ const Page = () => {
     const [topic, setTopic] = useState('');
     const [category, setCategory] = useState(-1);
     const [size, setSize] = useState('');
-
     const [categoriesList, setCategoriesList] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
 
@@ -28,20 +27,72 @@ const Page = () => {
 
 
     useEffect(() => {
-        const fetchData = async () => {
+        const getCategoriesList = async () => {
             try {
                 const response = await axios.get(
                     'https://backend.getlinked.ai/hackathon/categories-list'
                 );
-                console.log(response.data);
                 setCategoriesList(response.data)
             } catch (error) {
                 console.error('Error:', error);
             }
         };
 
-        fetchData();
+        getCategoriesList();
     }, []);
+
+
+
+
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const registerData = {
+            email: email,
+            phone_number: phone,
+            team_name: teamName,
+            group_size: size,
+            project_topic: topic,
+            category: category,
+            privacy_policy_accepted: true,
+        }
+
+        try {
+            const response = await axios.post(
+                'https://backend.getlinked.ai/hackathon/registration',
+                registerData,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+
+            if (response.status >= 200 && response.status < 300) {
+                // Display a congratulatory message and clear the form
+                setSuccessMessage('Congratulations! Your registration was successful.');
+                setIsSubmitted(true);
+
+                setTeamName('');
+                setPhone('');
+                setEmail('');
+                setTopic('');
+                setCategory(-1);
+                setSize('');
+                setIsChecked(false);
+            } else {
+
+                console.error('Registration Failed:', response.data);
+            }
+
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
 
 
@@ -58,9 +109,9 @@ const Page = () => {
                 />
             </section>
 
-            
+
             <section className={styles.container}>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <header>
                         {width > 719 && <h3>Register</h3>}
                         <p className={montserrat.className}>Be part of this movement!
@@ -124,7 +175,7 @@ const Page = () => {
                                     }
 
                                 </select>
-                                <span className={styles.dropdown}><img src={'/images/register/dropdown.png'}/></span>
+                                <span className={styles.dropdown}><img src={'/images/register/dropdown.png'} /></span>
 
                             </div>
 
