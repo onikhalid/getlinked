@@ -260,11 +260,11 @@
 
     .texts {
       max-width: 600px;
-      opacity: 0.1;
-      transition: opacity ease-in-out 250ms;
+      // opacity: 0.1;
+      opacity: 1;
+      // transition: opacity ease-in-out 250ms;
 
       &.animTexts {
-        opacity: 1;
       }
 
       p.p {

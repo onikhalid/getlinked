@@ -20,9 +20,6 @@ export default function Home() {
 
 
 
-
-
-
   useEffect(() => {
     const options = {
       root: null,
