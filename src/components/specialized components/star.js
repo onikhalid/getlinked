@@ -1,5 +1,4 @@
 import { useWindowWidth } from "@/utils/hooks/ResponsiveHook";
-import styles from './star.module.scss'
 
 
 const Star = ({ top, left, color, delay, size }) => {
@@ -69,22 +68,37 @@ const Star = ({ top, left, color, delay, size }) => {
 
 
 
+
     const style = {
         position: 'absolute',
         zIndex: '0 !important',
         top: getTop(),
         left: getLeft(),
-        width: '1vw  !important',
-        maxWidth: size && size == 'small' ? '12px !important' : ' 20px !important',
+        width: '1vw !important',
+        maxWidth: size && size === 'small' ? '12px !important' : '20px !important',
         mixBlendMode: 'hard-light',
-        opacity: color == 'grey' ? '0.5' : '0.95 !important',
-        animationDelay: `${delay * 100}ms`
+        opacity: color === 'grey' ? '0.5' : '0.95 !important',
+        animation: 'glow 2500ms ease-in-out infinite forwards',
+        animationDelay: `${delay * 100}ms`,
+        '@keyframes glow': {
+            from: {
+                opacity: 'initial',
+                transform: 'scale(1)',
+            },
+            '50%': {
+                opacity: '0.25',
+                transform: 'scale(0.65)',
+            },
+            to: {
+                opacity: 'initial',
+                transform: 'scale(1)',
+            },
+        },
     };
 
-
     return (
-        <img src={starImage()} style={style} aria-hidden="true" className={styles.star} />
-    )
+        <img src={starImage()} style={style} aria-hidden="true" />
+    );
 }
 
 export default Star

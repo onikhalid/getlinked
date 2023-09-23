@@ -128,6 +128,12 @@
         img {
             width: 35vw !important;
             max-width: 600px;
+
+        }
+
+        >img:nth-child(n+2):nth-child(-n+5) {
+            width: 1vw;
+            max-width: 20px;
         }
 
 
